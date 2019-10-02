@@ -37,7 +37,13 @@ class App extends Component {
     };
   }
 
+  getWinTries() {
+    let lastGuess = this.state.guesses.length - 1;
+    return this.state.guesses[lastGuess].score.perfect === 4 ? lastGuess + 1 : 0;
+  }
+
   render() {
+    let winTries = this.getWinTries();
     return (
       <div className="App">
         <button onClick={() =>
